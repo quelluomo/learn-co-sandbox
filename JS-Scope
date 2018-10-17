@@ -1,0 +1,26 @@
+sub// this is how inner and outer variables should work//
+
+
+function outerFunction() {
+  var innerVariable = "I'm sort of a secret.";
+ 
+  return function innerScope() {
+    var inaccessible = "Nothing can touch me.";
+ 
+    return innerVariable;
+  }
+}
+outerFunction()
+
+var myScope = outerFunction();
+ 
+// the stringified version of `innerScope()`
+myScope;
+
+var funkyFunction = function() {
+  return function() {
+    return "FUNKY!"
+  }
+}
+
+var theFunk = funkyFunction();
